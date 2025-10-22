@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Cosmic Whisper • Through My Astral Lens</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #f6f3ff;
+      --bg-2: #fff7f3;
+      --accent: #a78bfa;
+      --muted: #6b7280;
+      --card: rgba(255,255,255,0.8);
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 20px rgba(95,86,150,0.12);
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;scroll-behavior:smooth;}
+    body{
+      font-family: "Poppins", system-ui, sans-serif;
+      background: linear-gradient(135deg,var(--bg-1), var(--bg-2));
+      color:#222;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .background-visual{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(167,139,250,0.08) 0 8%, transparent 20%),
+        radial-gradient(circle at 80% 60%, rgba(255,205,178,0.07) 0 10%, transparent 22%),
+        radial-gradient(circle at 50% 40%, rgba(170,213,255,0.06) 0 14%, transparent 26%);
+      mix-blend-mode:overlay;
+      animation: floatBG 20s linear infinite;
+      filter: blur(20px);
+    }
+    @keyframes floatBG {
+      0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+      50%{transform:translate3d(2%,-2%,0) rotate(1deg)}
+    }
+
+    .wrap{position:relative;z-index:2;max-width:1100px;margin:36px auto;padding:28px;}
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(167,139,250,0.3);
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:16px;
+      margin:0;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#271a3f;
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:10px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover{ background: rgba(167,139,250,0.12) }
+
+    .menu-btn{
+      display:none;
+      border:none;
+      background:transparent;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    @media (max-width:980px){
+      nav ul{display:none;}
+      .menu-btn{display:block;}
+    }
+
+    .hero{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:20px;
+      align-items:center;
+      box-shadow:var(--shadow);
+      border: 1px solid var(--glass);
+    }
+
+    .hero h1{
+      font-family:'Playfair Display', serif;
+      font-size:28px;
+      color:#3b2762;
+      margin-bottom:12px;
+    }
+
+    .hero p{ color:var(--muted); font-size:16px; }
+
+    @media(max-width:980px){ .hero{grid-template-columns:1fr;} }
+
+    section{
+      margin-top:60px;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--glass);
+    }
+
+    section h2{
+      font-family:'Playfair Display', serif;
+      color:#3b2762;
+      margin-bottom:12px;
+    }
+
+    section p{ color:var(--muted); margin-bottom:10px; }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:12px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(167,139,250,0.25);
+    }
+
+    footer{
+      margin-top:60px;
+      text-align:center;
+      color:#6b7280;
+      font-size:14px;
+    }
+
+    .audio-glow{
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#a78bfa;
+      box-shadow:0 0 15px 8px rgba(167,139,250,0.4);
+      opacity:0;
+      animation: fadeInGlow 2s forwards;
+    }
+
+    @keyframes fadeInGlow{ to{opacity:1;} }
+  </style>
+</head>
+
+<body>
+<div class="background-visual"></div>
+
+<div class="wrap">
+  <header class="site-header">
+    <!-- Brand -->
+    <div class="brand">
+      <a href="https://instagram.com/lunar_keerat" target="_blank">
+        <img src="logo.png" alt="Logo" class="logo">
+      </a>
+      <div class="brand-text">
+        <div class="brand-title">The Cosmic Whisper</div>
+        <div class="brand-subtitle">Through My Astral Lens • by Keerat</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <button class="menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul id="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#journal">Astral Journal</a></li>
+        <li><a href="#thoughts">Cosmic Thoughts</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<!-- CSS -->
+<style>
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(245, 240, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(167,139,250,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.site-header:hover {
+  box-shadow: 0 0 45px 10px rgba(167,139,250,0.5);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(167,139,250,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px 6px rgba(167,139,250,0.6);
+}
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #4b3a7a;
+  font-weight: bold;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between; /* spreads links evenly */
+  gap: 20px; /* slight spacing between items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 400px; /* optional: ensures spacing doesn’t collapse */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3b2762;
+  font-weight: 600; /* bolder links */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #a78bfa;
+  text-shadow: 0 0 8px rgba(167,139,250,0.7);
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3b2762;
+  transition: color 0.3s ease;
+}
+
+.menu-btn:hover {
+  color: #a78bfa;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(245, 240, 255, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(167,139,250,0.3);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+</style>
+
+<!-- JS for mobile toggle -->
+<script>
+function toggleMobileMenu() {
+  const nav = document.getElementById('navList');
+  nav.classList.toggle('active');
+}
+</script>
+
+<main id="home">
+  <div class="hero">
+    
+    <!-- Text Content -->
+    <div class="hero-text">
+      <h1>"I whisper to the stars, and sometimes, they whisper back."</h1>
+      <p>
+        Welcome to a soft corner of the web where telescope notes, space poems, and quiet videos meet.  
+        I’m <strong>Keerat</strong> — amateur astronomer, harmonium player, and creative editor exploring the cosmos.
+      </p>
+    </div>
+
+    <!-- Image Content -->
+    <aside class="hero-image">
+      <img src="telescope.jpg" alt="Telescope">
+    </aside>
+    
+  </div>
+</main>
+
+<!-- CSS -->
+<style>
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+  background: linear-gradient(160deg, #f5f0ff, #e5dbff);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(167,139,250,0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero Text */
+.hero-text {
+  flex: 1;
+  animation: fadeInLeft 1.5s ease forwards;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #3b2e49;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  opacity: 0;
+  animation: fadeIn 2s forwards 0.5s;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #4b3b64;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 2s forwards 1s;
+}
+
+/* Hero Image */
+.hero-image {
+  flex: 1;
+  text-align: center;
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(167,139,250,0.4);
+  transition: box-shadow 0.6s ease, transform 0.6s ease;
+}
+
+/* Glow effect on hover */
+.hero-image img:hover {
+  box-shadow: 0 0 40px 8px rgba(167,139,250,0.7);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+</style>
+
+<!-- Astral Journal Section -->
+<section id="journal" class="journal-section">
+  
+  <h2>🪐 Astral Journal</h2>
+
+  <!-- Placeholder for Image -->
+  <div class="journal-image" style="text-align:center; margin-bottom:25px;">
+    <!-- Replace the src with your image link -->
+    <img src="cloud.jpg" alt="Astral Observation">
+  </div>
+  
+  <!-- Journal Info -->
+  <div class="journal-info">
+    <strong>Date:</strong> October 22, 2025<br>
+    <strong>Location:</strong> My terrace, under a calm autumn sky<br>
+    <strong>Telescope:</strong> Celestron
+  </div>
+
+  <!-- Journal Entry -->
+  <p class="journal-entry">
+    Tonight, I aimed my telescope toward the <strong>Orion constellation</strong>, where the <em>Orionid meteor shower</em> danced across the darkness. Each streak of light felt like a whisper from the universe — brief, bright, and infinite. I captured a few glimpses through the eyepiece, but the real beauty was how silent everything felt beneath the stars.<br><br>
+    The <strong>Orion Nebula</strong> shimmered faintly, glowing like a living cloud of creation. For a moment, time slowed — it was just me, my telescope, and the cosmos breathing quietly.
+  </p>
+
+  <!-- Reflection -->
+  <div class="reflection">
+    <strong>Reflection:</strong><br>
+    There’s something humbling about realizing how small we are, yet how deeply connected to everything beyond. Every star I see tonight might already be gone, yet its light continues to travel — a reminder that beauty outlives its source.
+  </div>
+
+</section>
+
+<!-- CSS -->
+<style>
+.journal-section {
+  background-color:#f5f0ff;
+  padding:50px;
+  border-radius:25px;
+  box-shadow:0 8px 35px rgba(167,139,250,0.25);
+  max-width:1200px; /* match Home section width */
+  margin:50px auto;
+  font-family:Arial, sans-serif;
+  color:#3b2e49;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  animation: fadeInUp 1.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow and lift effect on hover */
+.journal-section:hover {
+  box-shadow: 0 0 50px 12px rgba(167,139,250,0.6);
+  transform: translateY(-6px);
+}
+
+/* Heading */
+.journal-section h2 {
+  text-align:center;
+  font-size:34px;
+  margin-bottom:30px;
+  opacity:0;
+  animation: fadeIn 2s forwards 0.3s;
+}
+
+/* Image */
+.journal-image img {
+  max-width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(167,139,250,0.35);
+  transition: box-shadow 0.6s ease, transform 0.6s ease;
+  animation: floatImage 5s ease-in-out infinite;
+}
+
+/* Glow pulse for image */
+.journal-image img:hover {
+  box-shadow: 0 0 45px 10px rgba(167,139,250,0.7);
+  transform: scale(1.05);
+}
+
+/* Info and Entry */
+.journal-info {
+  margin-bottom:30px;
+  font-size:16px;
+  line-height:1.75;
+}
+
+.journal-entry {
+  font-size:17px;
+  line-height:1.85;
+  margin-bottom:30px;
+}
+
+/* Reflection */
+.reflection {
+  background-color:#e5dbff;
+  padding:22px;
+  border-radius:16px;
+  font-style:italic;
+  font-size:16px;
+  line-height:1.85;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.reflection:hover {
+  box-shadow: 0 0 35px 8px rgba(167,139,250,0.6);
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(25px);}
+  to { opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media screen and (max-width:1100px) {
+  .journal-section {
+    padding:40px;
+  }
+  .journal-image img {
+    max-height:350px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .journal-section {
+    padding:30px;
+  }
+  .journal-image img {
+    max-height:280px;
+  }
+}
+</style>
+
+
+    <!-- Cosmic Thoughts Section -->
+<section id="thoughts" class="thoughts-section">
+  <h2>💭 Some Interesting Facts About Astronomy</h2>
+
+  <div class="fact">
+    <strong>The Moon is lemon-shaped</strong>
+    <p>Despite its round appearance, the Moon is slightly flattened at the poles and bulging at the equator due to Earth's gravitational pull.</p>
+  </div>
+
+  <div class="fact">
+    <strong>The Sun is 400 times larger than the Moon</strong>
+    <p>Interestingly, it's also 400 times farther away from Earth, making both appear the same size in our sky.</p>
+  </div>
+
+  <div class="fact">
+    <strong>Mercury’s day is longer than its year</strong>
+    <p>A day on Mercury lasts 59 Earth days, while its year is only 88 Earth days.</p>
+  </div>
+
+  <div class="fact">
+    <strong>"Great Wave" Ripples Through the Milky Way</strong>
+    <p>A massive ripple, dubbed a "Great Wave," has been detected sweeping through our galaxy, altering the positions of billions of stars. This phenomenon was uncovered using data from the European Space Agency’s Gaia space telescope.</p>
+  </div>
+
+  <div class="fact">
+    <strong>Astronomers Spot the Most Powerful and Distant Odd Radio Circle</strong>
+    <p>Astronomers have discovered the most powerful and distant “odd radio circle” (ORC) ever detected, named RAD J131346.9+500320. These immense, faint rings of plasma emit radio waves and enshroud certain galaxies.</p>
+  </div>
+
+  <blockquote>
+    “Maybe the stars don’t burn for us — maybe we just glow because we see them.”
+  </blockquote>
+</section>
+
+<!-- CSS -->
+<style>
+.thoughts-section {
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  padding:50px 30px;
+  border-radius:25px;
+  max-width:1200px;
+  margin:50px auto;
+  box-shadow:0 8px 35px rgba(167,139,250,0.2);
+  font-family:Arial, sans-serif;
+  color:#3b2e49;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.thoughts-section h2 {
+  text-align:center;
+  font-size:32px;
+  margin-bottom:40px;
+  color:#4b3a7a;
+  opacity:0;
+  animation: fadeIn 2s forwards 0.3s;
+}
+
+.fact {
+  background-color:#e5dbff;
+  padding:20px 25px;
+  border-radius:15px;
+  margin-bottom:25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px 8px rgba(167,139,250,0.5);
+}
+
+.fact strong {
+  display:block;
+  font-size:17px;
+  margin-bottom:8px;
+  color:#3b2e49;
+}
+
+.fact p {
+  font-size:16px;
+  line-height:1.7;
+  color:#4b3b64;
+}
+
+blockquote {
+  font-style:italic;
+  text-align:center;
+  color:#4b3a7a;
+  font-size:16px;
+  margin-top:35px;
+  padding:15px;
+  border-left:4px solid #a78bfa;
+  background-color:#f0e5ff;
+  border-radius:10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(20px);}
+  to { opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+/* Responsive */
+@media screen and (max-width:900px) {
+  .thoughts-section {
+    padding:40px 20px;
+  }
+  .fact {
+    padding:18px 20px;
+  }
+}
+</style>
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery-section">
+  <h2>🌌 Gallery</h2>
+  <p>Photos clicked through my telescope</p>
+  
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="pleiades.jpg" alt="Pleiades Nebula"></div>
+    <div class="gallery-item"><img src="snowmoon.jpg" alt="Snow Moon"></div>
+    <div class="gallery-item"><img src="cloud.jpg" alt="Orion Nebula"></div>
+    <div class="gallery-item"><img src="moon.jpg" alt="Moon"></div>
+  </div>
+  
+  <p class="instagram-note">
+  <strong>📸 <i>Check out my Instagram for more amazing clicks: 
+  <a href="https://instagram.com/lunar_keerat" target="_blank">@lunar_keerat</a></i></strong>
+</p>
+</section>
+
+<!-- CSS -->
+<style>
+.gallery-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  border-radius: 25px;
+  box-shadow: 0 8px 35px rgba(167,139,250,0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #3b2e49;
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-section:hover {
+  box-shadow: 0 0 60px 15px rgba(167,139,250,0.5);
+}
+
+.gallery-section h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #4b3a7a;
+}
+
+.gallery-section p {
+  font-size: 16px;
+  margin-bottom: 35px;
+  color: #4b3b64;
+}
+
+/* Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(167,139,250,0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.07) rotate(-1deg);
+  box-shadow: 0 0 55px 12px rgba(167,139,250,0.6);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Instagram Note */
+.instagram-note {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #4b3a7a;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.instagram-note:hover {
+  color: #a78bfa;
+  text-shadow: 0 0 8px rgba(167,139,250,0.7);
+}
+
+/* Floating Animation */
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+</style>
+
+
+    <!-- My Gear Section -->
+<section id="My-gear" class="gear-section">
+  <div class="gear-container">
+    <!-- Telescope Image -->
+    <div class="gear-image">
+      <img src="telescopee.jpg" alt="telescope">
+    </div>
+
+    <!-- Text Content -->
+    <div class="gear-text">
+      <h2>My Gear - My Telescope</h2>
+      <strong>Tips for Beginners: Telescope Basics</strong>
+      <p>
+        Getting started with a telescope can be magical if you know the basics. First, familiarize yourself with its main parts: 
+        <i><b>the optical tube (where the light enters)</b></i>, 
+        <i><b>the eyepiece (which magnifies your view)</b></i>, 
+        <b><i>the finderscope (a small telescope that helps you aim)</i></b>, 
+        <b><i>and the mount/tripod (which keeps your telescope stable)</b></i>.<br><br>
+        Always start by attaching the finderscope and aligning it with a distant object during daylight. Use a low-power eyepiece first to locate celestial objects, then switch to higher magnification for details. Remember to focus slowly and avoid touching the telescope too much once aligned. Finally, practice patience — observing planets, stars, or nebulae takes time, but every moment under the stars is rewarding.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.gear-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  border-radius: 25px;
+  box-shadow: 0 8px 35px rgba(167,139,250,0.2);
+  font-family: Arial, sans-serif;
+  color: #3b2e49;
+}
+
+.gear-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.gear-image img {
+  height: 350px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(167,139,250,0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: floatImage 5s ease-in-out infinite;
+}
+
+.gear-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px 10px rgba(167,139,250,0.6);
+}
+
+.gear-text {
+  max-width: 650px;
+}
+
+.gear-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #4b3a7a;
+}
+
+.gear-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* Floating animation */
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .gear-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gear-image img {
+    height: 300px;
+  }
+
+  .gear-text {
+    max-width: 100%;
+  }
+}
+</style>
+
+
+
+    <!-- About Section -->
+<section id="about" class="about-section">
+  <!-- About Image -->
+  <div class="about-image">
+    <img src="main.jpg" alt="Keerat Kaur - Cosmic Whisper">
+  </div>
+
+  <!-- About Text -->
+  <div class="about-text">
+    <h2>About Me — Cosmic Whisper</h2>
+    <p>
+      <strong>Hello! I’m Keerat Kaur</strong>, a passionate astronomer, space enthusiast, and lifelong stargazer. Ever since I got my hands on a Celestron telescope, I’ve been mesmerized by the cosmos — from observing the Moon’s craters to capturing distant nebulae and planets.
+    </p>
+    <p>
+      Through Cosmic Whisper, I share my love for the night sky, celestial events, and personal observations in my Astral Journal. I enjoy combining my curiosity for the universe with creativity — crafting visuals, writing notes, and making each discovery a story to tell.
+    </p>
+    <p>
+      Whether it’s tracking meteor showers, exploring galaxies, or capturing planetary details through my telescope, I aim to inspire others to look up, wonder, and feel connected to the vast universe above.
+    </p>
+    <p>
+      Beyond the stars, I’m a creator at heart — I enjoy web design, video editing, and bringing ideas to life in ways that reflect my personality: calm, curious, and endlessly fascinated by the mysteries of space.
+    </p>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.about-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  border-radius: 25px;
+  box-shadow: 0 8px 35px rgba(167,139,250,0.2);
+  font-family: Arial, sans-serif;
+  color: #3b2e49;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Glow & lift on hover */
+.about-section:hover {
+  box-shadow: 0 0 60px 12px rgba(167,139,250,0.5);
+  transform: translateY(-3px);
+}
+
+.about-image img {
+  width: 350px; /* Fixed width for balanced side-by-side layout */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(167,139,250,0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: floatImage 5s ease-in-out infinite;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px 10px rgba(167,139,250,0.6);
+}
+
+.about-text {
+  flex: 1; /* Take remaining space */
+}
+
+.about-text h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #4b3a7a;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Floating animation */
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 20px;
+  }
+
+  .about-image img {
+    width: 80%; /* Adjust width for smaller screens */
+    max-width: 300px;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+}
+</style>
+
+
+  <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2>✨ Contact</h2>
+  <p>If you'd like to collaborate, share your star photos, or just say hi — reach me at:</p>
+
+  <div class="contact-info">
+    <p>📧 <strong>Email:</strong> <a href="mailto:k231119891313@gmail.com">k231119891313@gmail.com</a></p>
+    <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/lunar_keerat" target="_blank">@lunar_keerat</a></p>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.contact-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  border-radius: 25px;
+  box-shadow: 0 8px 35px rgba(167,139,250,0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #3b2e49;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-section:hover {
+  box-shadow: 0 0 50px 12px rgba(167,139,250,0.5);
+  transform: translateY(-3px);
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #4b3a7a;
+}
+
+.contact-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 12px 0;
+}
+
+.contact-info a {
+  color: #4b3a7a;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.contact-info a:hover {
+  color: #a78bfa;
+  text-shadow: 0 0 8px rgba(167,139,250,0.8);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .contact-section {
+    padding: 30px 20px;
+  }
+}
+</style>
+
+<!-- Footer -->
+<footer class="footer">
+  © <span id="year"></span> The Cosmic Whisper • Designed by Keerat
+</footer>
+
+<!-- CSS -->
+<style>
+.footer {
+  text-align: center;
+  padding: 20px 10px;
+  background: linear-gradient(160deg, #f5f0ff, #eae0ff);
+  color: #3b2e49;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(167,139,250,0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+/* Glow effect on hover */
+.footer:hover {
+  box-shadow: 0 0 35px 8px rgba(167,139,250,0.6);
+  transform: translateY(-2px);
+  color: #a78bfa;
+}
+
+/* Optional subtle animation: glowing text */
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 3px #a78bfa; }
+  50% { text-shadow: 0 0 12px #a78bfa; }
+}
+
+.footer span, .footer {
+  animation: glowText 2.5s infinite alternate;
+}
+</style>
+
+<!-- JavaScript to set current year -->
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+  <!-- Hidden autoplay audio -->
+  <audio id="ambient" autoplay loop preload="auto">
+    <source src="space.mp3" type="audio/mpeg">
+  </audio>
+  <div id="audioGlow" class="audio-glow" style="display:none;"></div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMobileMenu(){
+      const nav = document.getElementById('navList');
+      if(nav.style.display === 'flex') nav.style.display = 'none';
+      else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.right = '20px';
+        nav.style.top = '70px';
+        nav.style.background = 'rgba(255,255,255,0.95)';
+        nav.style.padding = '12px';
+        nav.style.borderRadius = '12px';
+        nav.style.boxShadow = '0 10px 30px rgba(150,120,200,0.1)';
+      }
+    }
+
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+        if(window.innerWidth < 980) document.getElementById('navList').style.display='none';
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const audio = document.getElementById('ambient');
+      const glow = document.getElementById('audioGlow');
+      audio.volume = 0.4;
+
+      function startAudio(){
+        audio.play().then(()=>glow.style.display='block').catch(()=>{});
+      }
+
+      audio.play().then(()=>glow.style.display='block').catch(()=>{
+        document.body.addEventListener('click', ()=>{ startAudio(); }, {once:true});
+      });
+    });
+  </script>
+</body>
+</html>
